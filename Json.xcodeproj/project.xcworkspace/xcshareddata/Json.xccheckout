@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E5529FCC-FC51-4A43-98A5-F0B6FA92DBED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Json</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>058A3DEABF68E43A48F63F957D712E937C36F144</key>
+		<string>https://github.com/Luweimy/json.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Json.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>058A3DEABF68E43A48F63F957D712E937C36F144</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Luweimy/json.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>058A3DEABF68E43A48F63F957D712E937C36F144</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>058A3DEABF68E43A48F63F957D712E937C36F144</string>
+			<key>IDESourceControlWCCName</key>
+			<string>json</string>
+		</dict>
+	</array>
+</dict>
+</plist>
