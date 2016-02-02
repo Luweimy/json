@@ -16,21 +16,31 @@
 #include <type_traits>
 #include <string>
 
-#define NAMESPACE       namespace json {
-#define NAMESPACE_END   }
-
-
-NAMESPACE
-
+namespace json {
+    
+template <typename _Container>
+class JsonIterator {
+public:
+    JsonIterator(_Container *val) : object(val) {}
+    JsonIterator(std::nullptr_t)  : object(nullptr) {}
+    
+    typename _Container::iterator begin() { return object ? object->begin() : typename _Container::iterator(); }
+    typename _Container::iterator end() { return object ? object->end() : typename _Container::iterator(); }
+    typename _Container::const_iterator begin() const { return object ? object->begin() : typename _Container::iterator(); }
+    typename _Container::const_iterator end() const { return object ? object->end() : typename _Container::iterator(); }
+    
+private:
+    _Container *object;
+};
 
 class JSON {
 public:
     typedef std::string String;
     typedef std::deque<JSON> Array;
     typedef std::unordered_map<std::string, JSON> Object;
+    static const JSON NullObject;
     
-    static const JSON Null;
-    
+    enum { _TAB_INDENT = 4 };
     enum class Type {
         Null, Float, Integer, Boolean, String, Array, Object
     };
@@ -74,6 +84,9 @@ public:
     template <typename T, typename... U>
     void Append(T arg, U... args);
     
+    std::string ToPrettyJson(int depth=0) const;
+    std::string ToJson() const;
+
     std::string ToString() const;
     double ToFloat();
     long ToInteger();
@@ -87,9 +100,13 @@ public:
     JSON& Clear();
     void SetType(Type type);
     
+    JsonIterator<Object> ObjectInerator();
+    JsonIterator<Array> ArrayInerator();
+    
     static JSON Make(Type type);
     static JSON Load(const std::string &s);
     
+
 public:
     union JsonData{
         bool    boolean;
@@ -105,13 +122,8 @@ private:
     JSON::Type     m_type;
 };
 
-static JSON Object() {
-    return std::move(JSON::Make(JSON::Type::Object));
-}
-
-static JSON Array() {
-    return std::move(JSON::Make(JSON::Type::Array));
-}
+JSON Object();
+JSON Array();
 
 template <typename... T>
 JSON Array(T... args) {
@@ -172,6 +184,6 @@ void JSON::Append(T arg, U... args) {
 }
 
 
-NAMESPACE_END
+}
 
 #endif /* defined(__Json__Json__) */
